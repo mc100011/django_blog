@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Projets liés à {{ tag.nom }} - Mon Blog{% endblock %}
+
+{% block content %}
+
+<h2>Projets liés à "{{ tag.nom }}"</h2>
+
+<div class="row">
+    {% for projet in projets %}
+    <div class="col-md-4">
+        <div class="card">
+            {% load static %}  <!-- Charge les fichiers statiques -->
+
+            {% if projet.image %}
+                <img src="{{ projet.image.url }}" class="card-img-top" alt="{{ projet.titre }}">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}" class="card-img-top" alt="Image par défaut">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ projet.titre }}</h5>
+                <p class="card-text">{{ projet.description|safe|truncatewords:15 }}</p> <!-- ✅ Correction ici -->
+                <a href="{% url 'detail_projet' projet.id %}" class="btn btn-primary">Voir plus</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Aucun projet trouvé pour ce tag.</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'liste_tags' %}" class="btn btn-secondary mt-3">Voir tous les tags</a>
+
+{% endblock %}

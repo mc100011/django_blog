@@ -1,0 +1,171 @@
+/* ========== Style global ========== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #343a40 !important;
+}
+
+.navbar a, .navbar a:hover {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #f8d210 !important;
+}
+
+/* ========== Footer ========== */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: #343a40;
+    color: white;
+    text-align: center;
+}
+
+/* ========== Animation des boutons ========== */
+.btn {
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* ========== Effet de survol sur les cartes ========== */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== Style des projets ========== */
+.projet-section, .projet-image {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.projet-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ========== Effet sur le carousel ========== */
+.carousel-item img {
+    filter: brightness(85%);
+    transition: filter 0.5s;
+}
+
+.carousel-item:hover img {
+    filter: brightness(100%);
+}
+
+/* ========== Tags ========== */
+.tag-btn {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    margin: 3px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tag-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+    .projet-image {
+        max-height: 300px;
+    }
+    .align-left,
+    .align-right,
+    .tinymce-content img {
+        max-width: 100%;
+        float: none;
+        display: block;
+        margin: 10px auto;
+    }
+}
+
+/* ========== Images et Listes ========== */
+.tinymce-content img, .align-left, .align-right, .align-center {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.align-left, .align-right {
+    float: left;
+    margin-right: 20px;
+}
+
+.align-right {
+    float: right;
+    margin-left: 20px;
+}
+
+ul, ol {
+    list-style-position: outside;
+    padding-left: 20px;
+}
+
+/* ========== Code Blocks ========== */
+pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    overflow-x: auto;
+}
+
+pre code {
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+}
+
+.code-block .copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.copy-btn:hover {
+    background-color: #0056b3;
+}
+

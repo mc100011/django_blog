@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Contact - Mon Blog{% endblock %}
+
+{% block content %}
+
+<h2>Contactez-nous</h2>
+
+<!-- Affichage des messages de confirmation -->
+{% if messages %}
+<div class="alert alert-success" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Formulaire de contact -->
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" name="nom" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="sujet" class="form-label">Sujet</label>
+        <input type="text" name="sujet" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea name="message" class="form-control" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
+
+{% endblock %}

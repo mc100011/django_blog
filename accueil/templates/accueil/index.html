@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Accueil - Mon Blog{% endblock %}
+
+{% block content %}
+
+<!-- Section Derniers Projets -->
+<h2 class="mt-4">Derniers Projets</h2>
+<div class="row">
+    {% for projet in projets %}
+    <div class="col-md-4">
+        <div class="card">
+            {% if projet.image %}
+                <img src="{{ projet.image.url }}" class="card-img-top" alt="{{ projet.titre }}">
+            {% else %}
+                <img src="{% static 'images/default.jpg' %}" class="card-img-top" alt="Image par défaut">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ projet.titre }}</h5>
+                    <p class="card-text">{{ projet.description|safe|truncatewords:15 }}</p>
+                <a href="{% url 'detail_projet' projet.id %}" class="btn btn-primary">Voir plus</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Aucun projet disponible.</p>
+    {% endfor %}
+</div>
+
+<!-- Section Actualités -->
+<h2 class="mt-5">Actualités</h2>
+<div class="list-group">
+    {% for actualite in actualites %}
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <img src="{{ actualite.image_url }}" alt="Image" class="me-3 rounded" style="width: 80px; height: 50px; object-fit: cover;">
+            <h5 class="mb-0">{{ actualite.titre }}</h5>
+        </div>
+        <a href="{{ actualite.lien }}" target="_blank" class="btn btn-outline-primary btn-sm">Lire</a>
+    </div>
+    {% empty %}
+    <p>Aucune actualité pour le moment.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

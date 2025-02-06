@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ projet.titre }} - Mon Blog{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card p-4 shadow-sm">
+        <h2 class="fw-bold">{{ projet.titre }}</h2>
+
+        <!-- Description du projet avec TinyMCE -->
+        <div class="tinymce-content">
+            {{ projet.description|safe }}
+        </div>
+
+        <!-- Tags associés -->
+        <h5>Tags :</h5>
+        {% for tag in projet.tags.all %}
+            <a href="{% url 'contenu_par_tag' tag.id %}" class="btn btn-outline-primary btn-sm">{{ tag.nom }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Bouton de retour -->
+<div class="text-center mt-4">
+    <a href="{% url 'liste_projets' %}" class="btn btn-secondary">Retour aux projets</a>
+</div>
+{% endblock %}
